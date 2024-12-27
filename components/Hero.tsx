@@ -9,9 +9,9 @@ import { MotionDiv } from "@/components/ui/motion";
 export const Hero = () => {
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "X (Twitter)" },
+    { icon: Instagram, href: "https://www.instagram.com/yugha13/?hl=en", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/yugha-s-606768293/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/yugha_13", label: "X (Twitter)" },
   ];
 
   return (
