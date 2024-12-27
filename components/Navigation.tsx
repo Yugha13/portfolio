@@ -39,7 +39,7 @@ export const Navigation = () => {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-4 z-60">
         <div className="flex items-center justify-between">
           <div className="flex place-items-center gap-2">
             <Avatar className="h-8 w-8 hover:scale-105 transition-transform duration-300">

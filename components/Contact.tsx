@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail } from 'lucide-react';
 import emailjs from "emailjs-com";
 import { motion, useInView } from "framer-motion";
+import { toast } from "@/hooks/use-toast";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export const Contact = () => {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false); // Added loading state
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -24,6 +26,7 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true on submit
     emailjs
       .send(
         "service_94ptrad", 
@@ -38,82 +41,55 @@ export const Contact = () => {
       )
       .then(
         () => {
-          alert("Message sent successfully!");
+          toast({
+            title: "Scheduled: Catch up",
+            description: "Email have send to yugha!",
+          })
           setFormData({ name: "", email: "", subject: "", message: "" });
+          setLoading(false); // Reset loading state
         },
         (error) => {
           console.error("Error:", error);
           alert("Failed to send message. Please try again.");
+          setLoading(false); // Reset loading state
         }
       );
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
   };
 
   return (
     <section id="contact" className="py-20 bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.h2 
+          <h2 
             className="text-4xl font-heading font-bold text-center mb-4"
-            variants={itemVariants}
           >
             Lets Work Together
-          </motion.h2>
-          <motion.p 
+          </h2>
+          <p 
             className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto"
-            variants={itemVariants}
           >
-            Ready to boost your conversions with compelling copy? Let's discuss
+            Ready to boost your conversions with compelling copy? Lets discuss
             your project.
-          </motion.p>
+          </p>
 
           <div className="max-w-xl mx-auto">
-            <motion.div 
+            <div
               className="mb-8 flex items-center justify-center"
-              variants={itemVariants}
             >
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
                 <Mail className="w-8 h-8 text-primary group-hover:rotate-12 transition-transform duration-300" />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.form 
+            <form 
               onSubmit={handleSubmit} 
               className="space-y-6"
-              variants={containerVariants}
             >
-              <motion.div 
+              <div 
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                variants={itemVariants}
               >
                 <div>
                   <Input
@@ -134,8 +110,8 @@ export const Contact = () => {
                     required
                   />
                 </div>
-              </motion.div>
-              <motion.div variants={itemVariants}>
+              </div>
+              <div >
                 <Input
                   name="subject"
                   placeholder="Subject"
@@ -143,8 +119,8 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                 />
-              </motion.div>
-              <motion.div variants={itemVariants}>
+              </div>
+              <motion.div>
                 <Textarea
                   name="message"
                   placeholder="Tell me about your project..."
@@ -154,16 +130,15 @@ export const Contact = () => {
                   required
                 />
               </motion.div>
-              <motion.div variants={itemVariants}>
-                <Button type="submit" className="w-full">
-                  Send Message
+              <motion.div >
+                <Button type="submit" className="w-full" disabled={loading}> {/* Disable button when loading */}
+                  {loading ? "Sending..." : "Send Message"} {/* Change button text based on loading state */}
                 </Button>
               </motion.div>
-            </motion.form>
+            </form>
           </div>
         </motion.div>
       </div>
     </section>
   );
 };
-
