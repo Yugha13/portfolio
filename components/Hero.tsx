@@ -15,7 +15,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center pt-20 pb-16 z-50 relative">
+    <section id="home" className="min-h-screen flex items-center pt-20 pb-16 z-50 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <MotionDiv
