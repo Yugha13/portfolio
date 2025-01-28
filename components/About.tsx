@@ -46,7 +46,7 @@ export const About = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
                 <img
-                  src="/yugha.png" 
+                  src="/avatar.png" 
                   alt="Profile Photo" 
                   className="w-full h-full object-cover"
 
@@ -109,7 +109,7 @@ export const About = () => {
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
                 <p className="text-lg text-muted-foreground mb-12">
-                  Hi, I am Yugha, a Professional Copywriter creating persuasive email campaigns, sales pages, and landing pages that drive results.
+                  Hi, I am Ranjith, a Professional Copywriter creating persuasive email campaigns, sales pages, and landing pages that drive results.
                   <br/> 
                   Even though I work independently on copywriting, I also work in a team of skilled experts who design websites and develop Android applications.
                   <br/>

@@ -47,7 +47,7 @@ export const Navigation = () => {
               <AvatarFallback>YU</AvatarFallback>
             </Avatar>
             <a href="#" className="text-xl font-heading font-bold">
-              Yugha
+              Ranjith
             </a>
           </div>
 

@@ -24,8 +24,8 @@ export const Hero = () => {
             className="flex justify-center mb-8"
           >
             <Avatar className="h-32 w-32 hover:scale-105 transition-transform duration-300">
-              <AvatarImage src="/yugha2.png" alt="Profile Photo" />
-              <AvatarFallback>YU</AvatarFallback>
+              <AvatarImage src="/avatar.png" alt="Profile Photo" />
+              <AvatarFallback>RA</AvatarFallback>
             </Avatar>
           </MotionDiv>
           
@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="flex justify-center items-center gap-2 animate-fade-in" style={{ animationDelay: "175ms" }}>
             <Mail className="w-5 h-5 text-primary" />
             <a href="mailto:syugha13@gmail.com" className="text-primary hover:underline">
-              syugha13@gmail.com
+              ranjithroyranjithroy8@gmail.com
             </a>
           </div>
           

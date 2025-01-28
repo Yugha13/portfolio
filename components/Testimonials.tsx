@@ -20,7 +20,7 @@ interface Review {
 const reviews: Review[] = [
   {
     id: 1,
-    name: "Ranjith",
+    name: "Vijay",
     image: "",
     role: "StartUp Owner",
     company: "Aayul Kaalam",
